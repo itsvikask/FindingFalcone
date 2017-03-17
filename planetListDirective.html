@@ -1,0 +1,5 @@
+
+<select name="destination" class="form-control" id="destination" ng-model='destination' ng-disabled="destination" required>
+  <option value="" selected="">Select</option>
+  <option ng-repeat="option in planets" value="{{option.name}}" ng-if="option.name != otherplanet1 && option.name != otherplanet2 && option.name != otherplanet3">{{option.name}}</option>
+</select>

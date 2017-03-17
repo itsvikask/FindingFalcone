@@ -1,0 +1,4 @@
+<label style="display:block" ng-repeat="v in vehicles">
+    <input type="radio" name="{{name}}" ng-model="$parent.vehicle" ng-value="v.name" ng-click="update();" ng-disabled='v.total_no == 0' required/> {{v.name}} ({{v.total_no}})
+  </br>
+</label>

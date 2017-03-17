@@ -1,0 +1,128 @@
+<style>
+table {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+tr{
+text-align:left
+}
+</style>
+
+<div class="navbar-collapse">
+   <ul class="nav navbar-nav navbar-right">
+   <li><a href="" ng-click="reset();"> Reset </a> </li>
+   <li><a href=""  ng-click="reset();"> Geek Trust Home</a></li>
+  </ul>
+</div>
+
+<div ng-hide="planetFound">
+
+<h4>Select planets you want to search in:</h4>
+
+</br>
+</br>
+
+<form name="findingFalcone">
+<div class="table-responsive">
+<table class="table">
+
+<tr>
+<td style="width:20%">
+<div class="form-group">
+  <label for="destination1"> Destination 1: </label></br>
+  <planet-list destination="model.destination1" planets="planets"
+  otherplanet1="model.destination2"  otherplanet2="model.destination3" otherplanet3="model.destination4"></planet-list>
+</div>
+</td>
+
+<td style="width:20%">
+<div class="form-group">
+  <label for="destination2"> Destination 2: </label></br>
+  <planet-list destination="model.destination2" planets="planets"
+  otherplanet1="model.destination1"  otherplanet2="model.destination3" otherplanet3="model.destination4"></planet-list>
+</div>
+</td>
+
+<td style="width:20%">
+<div class="form-group">
+  <label for="destination3"> Destination 3: </label></br>
+  <planet-list destination="model.destination3" planets="planets"
+  otherplanet1="model.destination1"  otherplanet2="model.destination2" otherplanet3="model.destination4"></planet-list>
+</div>
+</td>
+
+<td style="width:20%">
+<div class="form-group">
+  <label for="destination4"> Destination 4: </label></br>
+  <planet-list destination="model.destination4" planets="planets"
+  otherplanet1="model.destination1"  otherplanet2="model.destination2" otherplanet3="model.destination3"></planet-list>
+</div>
+</td>
+
+<td>
+<div class="form-group">
+  <h4>Time taken: {{timeTaken}}</h4>
+</div>
+</td>
+
+</tr>
+
+<tr>
+<td>
+<div ng-show="model.destination1">
+  <vehicle-list name="vehicleList.vehicle1" vehicles="vehicles" vehicle="v1" update="updateVCount();"> </vehicle-list>
+</div>
+</td>
+
+<td>
+<div ng-show="model.destination2">
+  <vehicle-list name="vehicleList.vehicle2" vehicles="vehicles" vehicle="v2" update="updateVCount();"> </vehicle-list>
+</div>
+</td>
+
+<td>
+<div ng-show="model.destination3">
+  <vehicle-list name="vehicleList.vehicle3" vehicles="vehicles" vehicle="v3" update="updateVCount();"> </vehicle-list>
+</div>
+</td>
+
+<td>
+<div ng-show="model.destination4">
+  <vehicle-list name="vehicleList.vehicle4" vehicles="vehicles" vehicle="v4" update="updateVCount();"> </vehicle-list>
+</div>
+</td>
+
+<td>
+</td>
+</tr>
+
+</table>
+</div>
+</br>
+</br>
+<button type="button" class="btn btn-primary" ng-disabled="findingFalcone.$invalid" ng-click="findFalcone();"> Find Falcone! </button>
+</form>
+
+</div>
+
+<div ng-show = "planetFound.status == 'success'" >
+
+  <h3>Success! Congratulations on Finding Falcone. King Shan is mighty pleased.
+  </br>
+  </br>
+  Time taken: {{timeTaken}} </br>
+  Planet found: {{planetFound.planet_name}}
+  </h3>
+ </br>
+ <button type="button" class="btn btn-primary" ng-click="reset();" > Try Again</button>
+</div>
+
+<div ng-show = "planetFound.status == 'false'">
+  <h3>
+  Sorry no planet found. Better luck next time!
+  </h3>
+  </br>
+  </br>
+  <button type="button" class="btn btn-primary" ng-click="reset();" > Try Again</button>
+</div>
