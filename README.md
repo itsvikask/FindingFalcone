@@ -1,4 +1,4 @@
-# Geek Trust Problem : FindingFalcone
+# Geektrust Problem : FindingFalcone
 
 -----------------------------------------------------------------
 Author: Vikas K
